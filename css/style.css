@@ -1,0 +1,241 @@
+@font-face {
+    font-family: technology-bold;
+    src: url(../assets/Technology-Bold.ttf);
+}
+*{
+    padding: 0;
+    margin: 0;
+    user-select: none;
+}
+html{
+    box-sizing: border-box;
+    font-family: technology-bold;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    background: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*-----------------------------------------------
+    Digital Clock
+-----------------------------------------------*/
+.digital-clock{
+    width: 430px;
+    padding: 30px 40px;
+    font-size: 5rem;
+    background: rgb(89, 172, 89);
+    border: 7px solid #222;
+    border-bottom: 14px solid #222;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px gray;
+    display: none;
+}
+.digital-clock span{
+    font-size: 3rem;
+}
+.digital-clock .day{
+    border-top: 1px solid rgba(0, 0, 0, .02);
+    padding-top: 20px;
+    font-size: 2rem;
+}
+
+/*-----------------------------------------------
+    Anolog Clock
+-----------------------------------------------*/
+.anolog-clock{
+    width: 420px;
+    height: 420px;
+    background: #f7f7f7;
+    padding: 30px;
+    box-shadow: 10px 20px 40px rgba(0, 0, 0, .05), inset -5px -5px 5px rgba(0,0,0,.2), inset 5px 5px 5px rgba(255, 255, 255, 0.644);
+    border-radius: 50%;
+    position: relative;
+    display: none;
+}
+/*----------------------------------------------
+    Hour Points
+-----------------------------------------------*/
+.anolog-clock .scale{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.anolog-clock .points{
+    width: 1px;
+    height: 100%;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.anolog-clock .points.b{
+    transform: rotate(30deg);
+}
+.anolog-clock .points.c{
+    transform: rotate(60deg);
+}
+.anolog-clock .points.d{
+    transform: rotate(90deg);
+}
+.anolog-clock .points.e{
+    transform: rotate(120deg);
+}
+.anolog-clock .points.f{
+    transform: rotate(150deg);
+}
+
+/*-----------------------------------------------
+    Anolog Clock Rotating Line
+-----------------------------------------------*/
+.screen{
+    background-color: #f7f7f7;
+    margin-top: 35px;
+    margin-left: 5px;
+    width: calc(100% - 70px);
+    height: calc(100% - 70px);
+    position: absolute;
+    top: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.screen div{
+    background: #111;
+}
+.screen .centerPoint{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    z-index: 1;
+}
+.screen .lineSec{
+    width: 1px;
+    height: calc(50% - 20px);
+    position: relative;
+    top: calc(-25% + 10px);
+    left: -5.5px;
+    transform-origin: bottom;
+}
+.screen .lineMin{
+    width: 1.5px;
+    height: calc(50% - 60px);
+    position: relative;
+    top: calc(-25% + 30px);
+    left: -6.5px;
+    transform-origin: bottom;
+}
+.screen .lineHrs{
+    width: 3.5px;
+    height: calc(50% - 110px);
+    position: relative;
+    top: calc(-25% + 55px);
+    left: -9.5px;
+    transform-origin: bottom;
+}
+input{
+    display: none;
+}
+
+/*-----------------------------------------------
+    Clock Switcher
+-----------------------------------------------*/
+label{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: gray;
+    box-shadow: 0px 0px 5px rgba(0,0,0,.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 5px;
+    cursor: pointer;
+}
+.digital-label{
+    right: 5px;
+}
+.anolog-label{
+    right: 50px;
+}
+#digital-checker:checked ~ .digital-clock{
+    display: block;
+}
+#anolog-checker:checked ~ .anolog-clock{
+    display: block;
+}
+#digital-checker:checked ~ .digital-label{
+    color: rgb(41, 163, 229);
+}
+#anolog-checker:checked ~ .anolog-label{
+    color: skyblue;
+}
+
+/*-----------------------------------------------
+    For Small Screen Devices
+-----------------------------------------------*/
+@media only screen and (max-width : 430px) {
+    .anolog-clock{
+        width: 70vw;
+        height: 70vw;
+    }
+    .anolog-clock .screen .lineHrs{
+        height: 50px;
+        top: -25px;
+        left: -9.5px;
+    }
+    .anolog-clock .screen .lineMin{
+        height: 75px;
+        position: relative;
+        top: -37.5px;
+        left: -6.5px;
+        transform-origin: bottom;
+    }
+    .digital-clock{
+        margin: 20px;
+        padding: 20px;
+        border: 4px solid #222;
+        border-bottom: 8px solid #222;
+    }
+    html{
+        font-size: 60%;
+    }
+}
+
+/*-----------------------------------------------
+    For Small Screen Devices Landscape Mode
+-----------------------------------------------*/
+@media only screen and (max-height : 400px ) {
+    .anolog-clock{
+        width: 70vh;
+        height: 70vh;
+    }
+    .anolog-clock .screen .lineHrs{
+        height: 50px;
+        top: -25px;
+        left: -9.5px;
+    }
+    .anolog-clock .screen .lineMin{
+        height: 75px;
+        position: relative;
+        top: -37.5px;
+        left: -6.5px;
+        transform-origin: bottom;
+    }
+}
+
+/* Copyright */
+.legal{
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 5px;
+    font-size: 10px;
+    position: fixed;
+    bottom: 20px;
+    color: rgba(0, 0, 0, .1);
+}

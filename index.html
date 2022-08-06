@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/png" />
+
+    <title>Clock App</title>
+  </head>
+  <body>
+    <div class="container">
+      <input type="radio" name="clock-type" id="digital-checker" checked />
+      <input type="radio" name="clock-type" id="anolog-checker" />
+
+      <label for="anolog-checker" class="anolog-label">A</label>
+      <label for="digital-checker" class="digital-label">D</label>
+
+      <div class="digital-clock"></div>
+
+      <div class="anolog-clock">
+        <div class="scale">
+          <span class="points a"></span>
+          <span class="points b"></span>
+          <span class="points c"></span>
+          <span class="points d"></span>
+          <span class="points e"></span>
+          <span class="points f"></span>
+        </div>
+        <div class="screen">
+          <div class="centerPoint"></div>
+          <div class="lineSec"></div>
+          <div class="lineMin"></div>
+          <div class="lineHrs"></div>
+        </div>
+      </div>
+
+      <div class="legal">@2022 Developed by Adarsh</div>
+    </div>
+  </body>
+  <script src="js/index.js"></script>
+</html>
